@@ -1,0 +1,30 @@
+package CalcEfficiency
+
+author Dai Kobayashi <dai.kobayashi@cern.ch>
+
+public
+use AtlasPolicy               AtlasPolicy-*
+use AsgTools                  AsgTools-*                  Control/AthToolSupport
+use AthenaBaseComps           AthenaBaseComps-*           Control
+use AtlasROOT                 AtlasROOT-*                 External
+use GoodRunsLists             GoodRunsLists-*             DataQuality
+use TrigConfInterfaces        TrigConfInterfaces-*        Trigger/TrigConfiguration
+use TrigConfxAOD              TrigConfxAOD-*              Trigger/TrigConfiguration
+use TrigDecisionTool          TrigDecisionTool-*          Trigger/TrigAnalysis
+use xAODMuon                  xAODMuon-*                  Event/xAOD
+use xAODTracking              xAODTracking-*              Event/xAOD
+use xAODTrigger               xAODTrigger-*               Event/xAOD
+use xAODTrigMuon              xAODTrigMuon-*              Event/xAOD
+use TrkExInterfaces           TrkExInterfaces-*           Tracking/TrkExtrapolation
+use TrkVertexFitterInterfaces TrkVertexFitterInterfaces-* Tracking/TrkVertexFitter
+
+private
+use GaudiInterface          GaudiInterface-*            External
+use xAODEventInfo           xAODEventInfo-*             Event/xAOD
+use TrkParameters           TrkParameters-*             Tracking/TrkEvent
+use TrkVKalVrtFitter          TrkVKalVrtFitter-*          Tracking/TrkVertexFitter
+
+public
+library CalcEfficiency *.cxx -s=components *.cxx
+apply_pattern component_library
+apply_pattern declare_joboptions files="*.py"
